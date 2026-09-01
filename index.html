@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#7017d1" />
+  <title>SMK PINTAR RUN — SMK 17 MUNCAR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app">
+    <section id="welcome" class="screen active">
+      <div class="hero-art"><span>💎</span><span>🏃</span><span>🏆</span></div>
+      <p class="eyebrow">PETUALANGAN EDUKASI 3D</p>
+      <h1>SMK <em>PINTAR</em><br><small>SMK 17 MUNCAR</small></h1>
+      <p class="intro">Lari, kumpulkan berlian, dan temukan jurusan impianmu!</p>
+      <form id="player-form" class="card form-card">
+        <label>Nama lengkap<input id="student-name" required autocomplete="name" placeholder="Contoh: Aulia Putri" maxlength="70" /></label>
+        <label>Nomor WhatsApp<input id="student-phone" required inputmode="tel" pattern="\+62[0-9]{8,13}" placeholder="+628123456789" /></label>
+        <button class="primary" type="submit">Mulai Petualangan <b>→</b></button>
+      </form>
+      <p class="hint">Nomor dimulai dengan +62 • Aman dan hanya untuk leaderboard</p>
+      <button class="text-btn" data-open="leaderboard">🏆 Lihat Leaderboard</button>
+    </section>
+
+    <section id="game" class="screen game-screen">
+      <canvas id="game-canvas"></canvas>
+      <div class="hud top-hud"><button id="pause-btn" aria-label="Jeda">Ⅱ</button><div class="level-pill">LEVEL <strong id="level-label">1</strong><small>/ 10</small></div><div class="gem-pill">💎 <strong id="gem-label">0</strong><small>/<span id="gem-goal">10</span></small></div></div>
+      <div id="game-tip" class="game-tip">Geser kiri / kanan untuk pindah jalur</div>
+      <div class="hud bottom-hud"><button class="move-btn" id="left-btn" aria-label="Ke kiri">‹</button><button class="move-btn" id="right-btn" aria-label="Ke kanan">›</button></div>
+    </section>
+
+    <section id="quiz" class="screen modal-screen"><div class="modal quiz-card"><div class="badge">LEVEL <span id="quiz-level">1</span> SELESAI! ✨</div><h2 id="quiz-title">Kenali AKL</h2><p id="quiz-question"></p><div id="quiz-options" class="quiz-options"></div><textarea id="essay" placeholder="Tulis jawabanmu dengan jujur dari hati..." maxlength="600"></textarea><p id="quiz-note" class="hint"></p><button id="quiz-submit" class="primary">Kirim & Lanjut Level <b>→</b></button></div></section>
+    <section id="leaderboard" class="screen modal-screen"><div class="modal board-card"><button class="close" data-close="leaderboard">×</button><p class="eyebrow">PEMAIN TERBAIK</p><h2>🏆 Leaderboard</h2><ol id="leaderboard-list"><li class="loading">Memuat skor...</li></ol><button class="primary" data-close="leaderboard">Kembali Bermain</button></div></section>
+    <section id="complete" class="screen modal-screen"><div class="modal complete-card"><div class="trophy">🏆</div><p class="eyebrow">HEBAT SEKALI!</p><h2>Kamu menyelesaikan<br><em>10 Level!</em></h2><p id="complete-text"></p><div class="score-final">💎 <strong id="final-score">0</strong> Berlian</div><button class="primary" data-open="leaderboard">Lihat Leaderboard</button><button class="text-btn" id="restart">Main Lagi</button></div></section>
+    <section id="paused" class="screen modal-screen"><div class="modal pause-card"><h2>Game Dijeda</h2><button id="resume" class="primary">Lanjutkan</button><button id="exit-game" class="text-btn">Keluar Game</button></div></section>
+  </main>
+  <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.1/build/three.module.js"}}</script>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
