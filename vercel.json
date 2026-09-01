@@ -1,1 +1,0 @@
-{"functions":{"api/leaderboard.js":{"maxDuration":10}},"headers":[{"source":"/(.*)","headers":[{"key":"X-Content-Type-Options","value":"nosniff"}]}]}
